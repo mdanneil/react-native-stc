@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from "react-native";
 import { getHours } from "../../helpers/helpers";
 
 const GymInfoCard = ({ session }) => {
-  console.log("seshh", session);
   const instructorName =
     session.instructors && session.instructors[0]
       ? session.instructors[0].name
