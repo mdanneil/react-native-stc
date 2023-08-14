@@ -1,15 +1,10 @@
-import {
-  ActivityIndicator,
-  Image,
-  SafeAreaView,
-  StyleSheet,
-} from "react-native";
-import Home from "./ui/Home/Home";
+import { WorkSans_700Bold } from "@expo-google-fonts/work-sans";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import GymInfo from "./ui/GymInfo/GymInfo";
 import { useFonts } from "expo-font";
-import { WorkSans_700Bold } from "@expo-google-fonts/work-sans";
+import { ActivityIndicator } from "react-native";
+import GymInfo from "./ui/GymInfo/GymInfo";
+import Home from "./ui/Home/Home";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,31 +32,17 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="GymInfo" component={GymInfo} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: 393,
-    height: 1282,
-    borderRadius: 48,
-    backgroundColor: "#E5E5E5",
-  },
-  heroImage: {
-    display: "flex",
-    width: 393,
-    height: 400,
-    flexDirection: "column",
-    justifyContent: "flex-end",
-    alignItems: "flex-start",
-    gap: 8,
-    flexShrink: 0,
-  },
-});
 
 export default App;
