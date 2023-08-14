@@ -46,7 +46,12 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   cardStyle: {
-    color: "#fff",
+    color: "#FFF",
+    fontFamily: "WorkSans",
+    fontSize: 24,
+    fontStyle: "normal",
+    fontWeight: "700",
+    lineHeight: 33.6,
   },
   arrow: {
     position: "absolute",
