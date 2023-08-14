@@ -1,17 +1,16 @@
-import { Image, SafeAreaView, StyleSheet } from "react-native";
+import React from "react";
+import { Image, View, StyleSheet } from "react-native";
 import List from "./HomeList";
-import TopNavigation from "../TopNavigation";
 
 const Home = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <TopNavigation />
+    <View style={styles.container}>
       <Image
         style={styles.heroImage}
         source={require("../../assets/hero.png")}
       />
       <List />
-    </SafeAreaView>
+    </View>
   );
 };
 
