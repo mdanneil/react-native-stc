@@ -44,7 +44,7 @@ const Navbar = ({ showArrow }) => {
           </View>
         </TouchableOpacity>
       ) : (
-        <View></View>
+        <View style={{ width: 24, height: 24 }}></View>
       )}
       <View style={styles.logo}>
         <Svg
