@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "flex-start",
     flexShrink: 0,
+    gap: 8,
     paddingVertical: 40,
     paddingHorizontal: 24,
   },
@@ -88,6 +89,15 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     paddingTop: 24,
     paddingHorizontal: 24,
+  },
+  navbarContainer: {
+    position: "absolute",
+    top: 80,
+    left: 0,
+    right: 0,
+    zIndex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 
