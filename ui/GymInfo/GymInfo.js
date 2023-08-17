@@ -1,8 +1,15 @@
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  Dimensions,
+} from "react-native";
 import GymInfoList from "./GymInfoList";
 import Navbar from "../Navbar";
-
+const windowWidth = Dimensions.get("window").width;
 const HeroContainer = ({ gym }) => {
+  const fontSize = Math.min(56, windowWidth * 0.1);
   return (
     <View>
       <ImageBackground
@@ -12,7 +19,9 @@ const HeroContainer = ({ gym }) => {
         <View style={styles.navbarContainer}>
           <Navbar showArrow={true} />
         </View>
-        <Text style={styles.GymName}>{gym.name.replace(/^STC /, "")}</Text>
+        <Text style={[styles.GymName, { fontSize }]}>
+          {gym.name.replace(/^STC /, "")}
+        </Text>
         <Text style={styles.gymAdress}>
           <Text>{gym.address.street}</Text>
           {"\n"}
@@ -51,7 +60,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "flex-start",
     flexShrink: 0,
-    gap: 8,
     paddingVertical: 40,
     paddingHorizontal: 24,
   },
@@ -61,7 +69,6 @@ const styles = StyleSheet.create({
     fontSize: 56,
     fontStyle: "normal",
     fontWeight: 700,
-    lineHeight: 61.6,
   },
   gymAdress: {
     color: "#FFFFFF",
