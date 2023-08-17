@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
     zIndex: 1,
     left: 0,
     right: 0,
-    zIndex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     fontFamily: "WorkSans",
     fontSize: 56,
     fontStyle: "normal",
-    fontWeight: 700,
+    fontWeight: "700",
     lineHeight: 61.6,
   },
 });

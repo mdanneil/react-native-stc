@@ -3,7 +3,11 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { useNavigation } from "@react-navigation/native";
 
-const Navbar = ({ showArrow }) => {
+interface NavbarProps {
+  showArrow: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ showArrow }) => {
   const navigation = useNavigation();
 
   const handleArrowPress = () => {
@@ -15,17 +19,11 @@ const Navbar = ({ showArrow }) => {
     <View style={styles.container}>
       {showArrow ? (
         <TouchableOpacity
-          style={showArrow ? styles.arrowLeft : styles.transparentArrowLeft}
+          style={showArrow ? styles.arrowLeft : null}
           onPress={handleArrowPress}
         >
           <View style={styles.arrowLeft}>
-            <Svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
+            <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <Path
                 d="M20.25 12H3.75"
                 stroke="white"
@@ -47,13 +45,7 @@ const Navbar = ({ showArrow }) => {
         <View style={{ width: 24, height: 24 }}></View>
       )}
       <View style={styles.logo}>
-        <Svg
-          width="57"
-          height="25"
-          viewBox="0 0 57 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <Svg width="57" height="25" viewBox="0 0 57 25" fill="none">
           <Path
             fill-rule="evenodd"
             clip-rule="evenodd"
@@ -75,13 +67,7 @@ const Navbar = ({ showArrow }) => {
         </Svg>
       </View>
       <View style={styles.nav}>
-        <Svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="24"
-          viewBox="0 0 25 24"
-          fill="none"
-        >
+        <Svg width="25" height="24" viewBox="0 0 25 24" fill="none">
           <Path
             d="M2.81451 7H22.8145"
             stroke="white"

@@ -2,7 +2,11 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
-const HomeCard = ({ name }) => {
+interface HomeCardProps {
+  name: String;
+}
+
+const HomeCard: React.FC<HomeCardProps> = ({ name }) => {
   return (
     <View style={styles.cardLayout}>
       <Text style={styles.cardStyle}>{name}</Text>

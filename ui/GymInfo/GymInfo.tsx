@@ -7,8 +7,10 @@ import {
 } from "react-native";
 import GymInfoList from "./GymInfoList";
 import Navbar from "../Navbar";
+import { Club } from "../../Types/Club";
+
 const windowWidth = Dimensions.get("window").width;
-const HeroContainer = ({ gym }) => {
+const HeroContainer = ({ gym }: { gym: Club }) => {
   const fontSize = Math.min(56, windowWidth * 0.1);
   return (
     <View>
@@ -68,14 +70,14 @@ const styles = StyleSheet.create({
     fontFamily: "WorkSans",
     fontSize: 56,
     fontStyle: "normal",
-    fontWeight: 700,
+    fontWeight: "700",
   },
   gymAdress: {
     color: "#FFFFFF",
     fontFamily: "WorkSans",
     fontSize: 16,
     fontStyle: "normal",
-    fontWeight: 500,
+    fontWeight: "500",
     lineHeight: 17.6,
   },
   upcomingSessions: {
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({
     fontFamily: "WorkSans",
     fontSize: 16,
     fontStyle: "normal",
-    fontWeight: 700,
+    fontWeight: "700",
     lineHeight: 22.4,
     opacity: 0.7,
     paddingTop: 24,

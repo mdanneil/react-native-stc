@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  ActivityIndicator,
-  FlatList,
-  Pressable,
-  Text,
-} from "react-native";
-import GymInfoCard from "./GymInfoCard";
+import { ActivityIndicator, FlatList, Text, View } from "react-native";
 import { getDayName } from "../../helpers/helpers";
+import GymInfoCard from "./GymInfoCard";
+import { Club } from "../../Types/Club";
+import { Session } from "../../Types/Session";
 
 const API_BASE_URL =
   "https://stc.brpsystems.com/brponline/api/ver3/businessunits";
 
-const GymInfoList = ({ gym }) => {
-  const [sessions, setSessions] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+const GymInfoList = ({ gym }: { gym: Club }) => {
+  const [sessions, setSessions] = useState<Session[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const currentDate = new Date();
   const nextWeekDate = new Date(
@@ -56,10 +52,10 @@ const GymInfoList = ({ gym }) => {
     return <ActivityIndicator />;
   }
 
-  const renderItem = ({ item, index }) => (
+  const renderItem = ({ item, index }: { item: string; index: number }) => (
     <View style={index === 0 ? { paddingTop: 0 } : { paddingTop: 40 }}>
-      <Text style={styles.blockHeader}>{item}</Text>
-      <View style={styles.sessionsBlock}>
+      <Text style={styles.blockHeader as any}>{item}</Text>
+      <View style={styles.sessionsBlock as any}>
         {sessions[item].map((session) => (
           <GymInfoCard session={session} key={session.id} />
         ))}
@@ -68,12 +64,11 @@ const GymInfoList = ({ gym }) => {
   );
 
   return (
-    <View style={styles.listContainer}>
+    <View style={styles.listContainer as any}>
       <FlatList
         data={Object.keys(sessions)}
         keyExtractor={(day) => day}
         renderItem={renderItem}
-        style={styles.flatList}
       />
     </View>
   );
@@ -93,7 +88,7 @@ const styles = {
     fontFamily: "WorkSans",
     fontSize: 40,
     fontStyle: "normal",
-    fontWeight: 700,
+    fontWeight: "700",
     lineHeight: 56,
   },
   sessionsBlock: {
