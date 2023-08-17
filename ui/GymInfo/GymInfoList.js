@@ -31,7 +31,6 @@ const GymInfoList = ({ gym }) => {
           `${API_BASE_URL}/${gym.id}/groupactivities?period.start=${formattedTodaysDate}&period.end=${formattedNextWeekDate}`
         );
         const json = await resp.json();
-        console.log("TRÄANINGAR", json);
 
         const grouped = json.reduce((acc, session) => {
           const day = getDayName(session.duration.start);
@@ -57,10 +56,10 @@ const GymInfoList = ({ gym }) => {
     return <ActivityIndicator />;
   }
 
-  const renderItem = ({ item }) => (
-    <View style={styles.sessionsBlock}>
+  const renderItem = ({ item, index }) => (
+    <View style={index === 0 ? { paddingTop: 0 } : { paddingTop: 40 }}>
       <Text style={styles.blockHeader}>{item}</Text>
-      <View style={styles.blockList}>
+      <View style={styles.sessionsBlock}>
         {sessions[item].map((session) => (
           <GymInfoCard session={session} key={session.id} />
         ))}
@@ -86,9 +85,7 @@ const styles = {
     flexDirection: "column",
     alignItems: "flex-start",
     gap: 16,
-    paddingLeft: 24,
-    paddingRight: 24,
-    paddingTop: 24,
+    paddingHorizontal: 24,
   },
   blockHeader: {
     alignSelf: "stretch",
