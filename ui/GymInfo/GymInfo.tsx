@@ -43,13 +43,16 @@ const GymInfo = ({ route }) => {
     <View style={styles.container}>
       <HeroContainer gym={gym} />
       <Text style={styles.upcomingSessions}>Upcoming sessions</Text>
-      <GymInfoList gym={gym} />
+      <View style={styles.listContainer}>
+        <GymInfoList gym={gym} />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     width: 393,
     height: 1282,
     borderRadius: 48,
@@ -99,6 +102,10 @@ const styles = StyleSheet.create({
     zIndex: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  listContainer: {
+    flex: 1,
+    paddingBottom: 24,
   },
 });
 

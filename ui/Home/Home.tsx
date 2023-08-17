@@ -15,7 +15,9 @@ const Home = () => {
       >
         <Text style={styles.heroText}>Our Gyms</Text>
       </ImageBackground>
-      <List />
+      <View style={styles.listContainer}>
+        <List />
+      </View>
     </View>
   );
 };
@@ -26,6 +28,7 @@ const styles = StyleSheet.create({
     height: 1282,
     borderRadius: 48,
     backgroundColor: "#E5E5E5",
+    flex: 1,
   },
   heroImage: {
     width: 393,
@@ -54,6 +57,10 @@ const styles = StyleSheet.create({
     fontStyle: "normal",
     fontWeight: "700",
     lineHeight: 61.6,
+  },
+  listContainer: {
+    flex: 1,
+    paddingBottom: 24,
   },
 });
 
