@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import TopNavigation from "../TopNavigation";
 import GymInfoList from "./GymInfoList";
+import Navbar from "../Navbar";
 
 const HeroContainer = ({ gym }) => {
   return (
@@ -15,7 +16,10 @@ const HeroContainer = ({ gym }) => {
         style={styles.heroImage}
         source={require("../../assets/gymInfoHero.png")}
       >
-        <Text style={styles.GymName}>{gym.name}</Text>
+        <View style={styles.navbarContainer}>
+          <Navbar showArrow={true} />
+        </View>
+        <Text style={styles.GymName}>{gym.name.replace(/^STC /, "")}</Text>
         <Text style={styles.gymAdress}>
           <Text>{gym.address.street}</Text>
           {"\n"}
@@ -32,12 +36,12 @@ const GymInfo = ({ route }) => {
   const gym = route.params;
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <TopNavigation />
       <HeroContainer gym={gym} />
       <Text style={styles.upcomingSessions}>Upcoming sessions</Text>
       <GymInfoList gym={gym} />
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -54,13 +58,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "flex-end",
     alignItems: "flex-start",
-    gap: 8,
     flexShrink: 0,
     paddingVertical: 40,
     paddingHorizontal: 24,
   },
   GymName: {
-    color: "red",
+    color: "#FFFFFF",
     fontFamily: "WorkSans",
     fontSize: 56,
     fontStyle: "normal",
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
     lineHeight: 61.6,
   },
   gymAdress: {
-    color: "red",
+    color: "#FFFFFF",
     fontFamily: "WorkSans",
     fontSize: 16,
     fontStyle: "normal",
@@ -81,8 +84,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontStyle: "normal",
     fontWeight: 700,
-    lineHeight: 22.4 /* 22.4px */,
+    lineHeight: 22.4,
     opacity: 0.7,
+    paddingTop: 24,
     paddingHorizontal: 24,
   },
 });
