@@ -1,11 +1,4 @@
-import {
-  ImageBackground,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import TopNavigation from "../TopNavigation";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 import GymInfoList from "./GymInfoList";
 import Navbar from "../Navbar";
 
@@ -37,7 +30,6 @@ const GymInfo = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      <TopNavigation />
       <HeroContainer gym={gym} />
       <Text style={styles.upcomingSessions}>Upcoming sessions</Text>
       <GymInfoList gym={gym} />
