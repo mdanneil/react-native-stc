@@ -37,7 +37,7 @@ const HomeList = () => {
             aria-label={item.name}
             onPress={() => navigation.navigate("GymInfo", item)}
           >
-            <Card name={item.name} />
+            <Card name={item.name.replace(/^STC /, "")} />
           </Pressable>
         )}
         style={styles.flatList}

@@ -13,7 +13,7 @@ const GymInfoCard = ({ session }) => {
         {session.slots.totalBookable} places remaining
       </Text>
       <Text style={styles.sessionName}>
-        {session.groupActivityProduct.name}
+        {session.groupActivityProduct.name.replace(/^STC /, "")}
       </Text>
       <View style={styles.row}>
         <Text style={styles.sessionInfo}>
